@@ -17,7 +17,7 @@ pada mata kuliah Pemrograman Berorientasi Objek.
 
 | Tampilan awal | Setelah menambah barang |
 |---|---|
-| ![Tampilan awal](./screenshots/01-tampilan-awal.png) | ![Setelah tambah barang](./screenshots/02-setelah-tambah-barang.png) |
+| ![Tampilan awal]() | ![Setelah tambah barang]() |
 
 ## Ringkasan 5 Komponen Utama
 

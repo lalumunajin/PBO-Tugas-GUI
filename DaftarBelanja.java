@@ -85,7 +85,6 @@ public class DaftarBelanja {
     }
 
     // ===== INNER CLASS: Event Handler =====
-
     // ActionListener: tombol Tambah / Enter
     private class TambahHandler implements ActionListener {
         @Override

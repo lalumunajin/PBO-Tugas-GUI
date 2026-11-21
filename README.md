@@ -29,9 +29,6 @@ pada mata kuliah Pemrograman Berorientasi Objek.
 | 4 | Layout Classes | `BorderLayout`, `FlowLayout` |
 | 5 | Event Listener | `ActionListener` (interface), `KeyAdapter`, `MouseAdapter`, `WindowAdapter` (class adapter) |
 
-Seluruh kode ada di [`src/DaftarBelanja.java`](src/DaftarBelanja.java). Nomor baris pada
-penjelasan di bawah merujuk ke file tersebut.
-
 ---
 
 ## 1. Top-level Container Class: `JFrame`
@@ -39,10 +36,10 @@ penjelasan di bawah merujuk ke file tersebut.
 `JFrame` adalah wadah paling luar yang berdiri sendiri, yaitu jendela utama aplikasi.
 Semua komponen lain diletakkan di dalamnya.
 
-Kode (baris 31, baris 41, dan baris 101–103):
+
 
 ```java
-// Deklarasi atribut (baris 31)
+// Deklarasi atribut
 private JFrame frame;
 
 // Dibuat di constructor (baris 41)
@@ -62,7 +59,6 @@ Wadah di dalam `JFrame` yang dipakai untuk mengelompokkan komponen. Aplikasi ini
 4 `JPanel` (`panelForm`, `panelTengah`, `panelTombol`, `panelBawah`) dan 1 `JScrollPane`
 yang membungkus `JList` agar daftar dapat di-scroll.
 
-Kode (baris 63–82):
 
 ```java
 JPanel panelForm = new JPanel(new FlowLayout());
@@ -101,10 +97,7 @@ Komponen terkecil yang berinteraksi langsung dengan pengguna dan tidak berisi ko
 | `JButton` | Tombol Tambah, Hapus, dan Reset |
 | `JList` | Menampilkan daftar belanja (datanya disimpan di `DefaultListModel`) |
 
-Kode (baris 31–37 dan baris 40–51):
-
 ```java
-// Deklarasi komponen (baris 31–37)
 private JFrame frame;
 private JTextField fieldBarang;
 private JComboBox<String> comboKategori;
@@ -138,23 +131,22 @@ public DaftarBelanja() {
 | `BorderLayout` | `JFrame` (judul di NORTH, panel tengah di CENTER, panel bawah di SOUTH), panel tengah, dan panel bawah |
 | `FlowLayout` | Panel form input dan panel tombol (komponen berjajar ke samping) |
 
-Kode (baris 55, baris 60, baris 63, baris 70–73, dan baris 76–82):
 
 ```java
-// BorderLayout pada JFrame (baris 55), judul di NORTH (baris 60)
+// BorderLayout pada JFrame 
 frame.setLayout(new BorderLayout(10, 10));
 frame.add(judul, BorderLayout.NORTH);
 
-// FlowLayout pada panel form (baris 63)
+// FlowLayout pada panel form 
 JPanel panelForm = new JPanel(new FlowLayout());
 
-// BorderLayout pada panel tengah (baris 70–73)
+// BorderLayout pada panel tengah 
 JPanel panelTengah = new JPanel(new BorderLayout(5, 5));
 panelTengah.add(panelForm, BorderLayout.NORTH);
 panelTengah.add(new JScrollPane(listBarang), BorderLayout.CENTER);
 frame.add(panelTengah, BorderLayout.CENTER);
 
-// BorderLayout (panel bawah) & FlowLayout (panel tombol) (baris 76–82)
+// BorderLayout (panel bawah) & FlowLayout (panel tombol) 
 JPanel panelBawah = new JPanel(new BorderLayout());
 JPanel panelTombol = new JPanel(new FlowLayout());
 panelTombol.add(btnHapus);
@@ -185,7 +177,7 @@ GUI milik class luar. Method listener di-*override* (`@Override`) dari **interfa
 `ActionListener` hanya punya satu method sehingga langsung di-`implements`. Listener lain
 punya banyak method, jadi dipakai class adapter agar cukup meng-override method yang dibutuhkan.
 
-### a. Registrasi listener ke komponen (baris 84–99)
+### a. Registrasi listener ke komponen
 
 Listener harus didaftarkan ke komponen (event source) agar dipanggil ketika event terjadi.
 
@@ -208,7 +200,7 @@ frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 frame.addWindowListener(new TutupHandler());
 ```
 
-### b. `ActionListener` (baris 112–128)
+### b. `ActionListener` 
 
 Contoh `TambahHandler`. `HapusHandler` ada di baris 130–143 dan `ResetHandler` di baris 145–153.
 
@@ -232,7 +224,7 @@ private class TambahHandler implements ActionListener {
 }
 ```
 
-### c. `KeyAdapter` (baris 155–161)
+### c. `KeyAdapter` 
 
 ```java
 // KeyAdapter: hanya override method yang dipakai (keyReleased)
@@ -244,7 +236,7 @@ private class KetikHandler extends KeyAdapter {
 }
 ```
 
-### d. `MouseAdapter` (baris 163–175)
+### d. `MouseAdapter` 
 
 ```java
 // MouseAdapter: hanya override mouseEntered & mouseExited
@@ -262,7 +254,7 @@ private class HoverHandler extends MouseAdapter {
 }
 ```
 
-### e. `WindowAdapter` (baris 177–187)
+### e. `WindowAdapter` 
 
 ```java
 // WindowAdapter: hanya override windowClosing

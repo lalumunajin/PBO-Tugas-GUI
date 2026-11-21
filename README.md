@@ -106,7 +106,7 @@ private JList<String> listBarang;
 private DefaultListModel<String> model;
 private JLabel lblStatus;
 
-// Pembuatan objek di constructor (baris 40–51)
+// Pembuatan objek di constructor 
 public DaftarBelanja() {
     frame = new JFrame("Daftar Belanja");
     fieldBarang = new JTextField(15);
